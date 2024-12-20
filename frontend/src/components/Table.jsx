@@ -1,6 +1,4 @@
 import { useState, useEffect } from 'react';
-import ViewDashBoard from './ViewDashBoard';
-import UpdateDashBoard from './UpdateDashBoard';
 import { Link } from 'react-router-dom';
 const Table = () => {
   // Dummy data to be displayed in the table
@@ -35,10 +33,7 @@ const Table = () => {
 
   const handleExport = async (data) => {
     try {
-      const res = await fetch(
-        `http://127.0.0.1:5000/api/cases/export/${data.caseCode}`
-      );
-      const resp = await res.json();
+      await fetch(`http://127.0.0.1:5000/api/cases/export/${data.caseCode}`);
       alert('PDF Generated Successfully');
       window.open(`http://127.0.0.1:5000/${data.caseCode}.pdf`, '_blank');
     } catch (err) {

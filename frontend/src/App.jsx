@@ -9,23 +9,47 @@ import Nav from './components/Nav';
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <><Home/></>,
+    element: (
+      <>
+        <Home />
+      </>
+    ),
   },
   {
     path: '/form',
-    element: <><Nav/><Form /></>,
+    element: (
+      <>
+        <Nav />
+        <Form />
+      </>
+    ),
   },
   {
     path: '/table',
-    element: <><Nav/><Table /></>,
+    element: (
+      <>
+        <Nav />
+        <Table />
+      </>
+    ),
   },
   {
     path: '/updateDashBoard',
-    element: <><Nav/><UpdateDashBoard /></>,
+    element: (
+      <>
+        <Nav />
+        <UpdateDashBoard />
+      </>
+    ),
   },
   {
     path: '/ViewDashBoard',
-    element: <><Nav/><ViewDashBoard /></>,
+    element: (
+      <>
+        <Nav />
+        <ViewDashBoard />
+      </>
+    ),
   },
 ]);
 function App() {

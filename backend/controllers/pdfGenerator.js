@@ -18,7 +18,6 @@ const generatePdf = (reportData) => {
   // };
   const {
     caseCode,
-    task,
     claimantName,
     claimAmount,
     hospitalName,
@@ -37,8 +36,6 @@ const generatePdf = (reportData) => {
       .fontSize(14)
       .text(`Case Code: ${caseCode}`, { align: 'left' })
       .moveDown(0.5)
-      .text(`Task: ${task}`)
-      .moveDown(0.5)
       .text(`Claimant Name: ${claimantName}`)
       .moveDown(0.5)
       .text(`Claim Amount: ${claimAmount}`)
@@ -50,8 +47,6 @@ const generatePdf = (reportData) => {
       .text(`Status: ${status}`)
       .moveDown(0.5)
       .text(`Created Date: ${createdDate}`)
-      .moveDown(0.5)
-      .text(`Updated Date: ${updatedDate || 'N/A'}`)
       .moveDown(2);
 
     doc.end();

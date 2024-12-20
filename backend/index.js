@@ -11,9 +11,9 @@ app.get('/generatePdf', (req, res) => {
   res.json({ message: resp.message });
 });
 app.use(express.json());
-require('./db/conn.js')
+require('./db/conn.js');
 
-app.use("/",routes)
+app.use('/', routes);
 
 app.listen(5000, () => {
   console.log(`App Listening on 5000`);
