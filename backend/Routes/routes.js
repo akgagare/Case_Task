@@ -16,7 +16,7 @@ router.route('/test').get((req, res) => {
 
 router.route('/api/cases').get(getallcases).post(createnewcase);
 
-router.route('/api/cases/:id').put(updatecase);
+router.route('/api/updateCase/:id').put(updatecase);
 
 router.route('/api/cases/export/:id').get((req, res) => {
   const resp = generatePdf('Aom');

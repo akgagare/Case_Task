@@ -1,21 +1,45 @@
-import React from 'react'
-
-const ViewDashBoard = ({CaseData}) => {
+const ViewDashBoard = () => {
+  const caseData = JSON.parse(localStorage.getItem('caseItem'));
   return (
-    <div className='mt-20 rounded-md  bg-pink-500 h-full w-[80%] p-6 pl-6 shadow-[0_35px_60px_rgba(0,0,0,0.1),0_10px_20px_rgba(0,0,0,0.04)]
-'>
-        <div className='mb-4'>
-            <h2 className='text-3xl'>Case Code</h2>
-            <h4>{CaseData.caseCode}</h4>
-            <hr className='h-1 bg-gray-950 mb-4'></hr>
-            <h2 className='text-3xl'>Claimant Name</h2>
-            <hr className='h-1 bg-gray-950 mb-4'></hr>
-            <h2 className='text-3xl'>Claim Amount</h2>
-            <hr className='h-1 bg-gray-950 mb-4'></hr>
-            <h2 className='text-3xl'>Status</h2>
-        </div>
-    </div>
-  )
-}
+    <div className="mt-20 rounded-lg bg-white h-full w-[80%] p-8 shadow-lg mx-auto border border-gray-200">
+      <div className="mb-6">
+        <h1 className="text-4xl font-bold text-gray-800 mb-6 text-center">
+          Case Dashboard
+        </h1>
 
-export default ViewDashBoard
+        <div className="mb-8">
+          <h2 className="text-xl font-semibold text-gray-600">Case Code</h2>
+          <p className="text-lg text-gray-700 mt-2">
+            {caseData?.caseCode || 'N/A'}
+          </p>
+          <hr className="mt-4 border-t border-gray-300" />
+        </div>
+
+        <div className="mb-8">
+          <h2 className="text-xl font-semibold text-gray-600">Claimant Name</h2>
+          <p className="text-lg text-gray-700 mt-2">
+            {caseData?.claimantName || 'N/A'}
+          </p>
+          <hr className="mt-4 border-t border-gray-300" />
+        </div>
+
+        <div className="mb-8">
+          <h2 className="text-xl font-semibold text-gray-600">Claim Amount</h2>
+          <p className="text-lg text-gray-700 mt-2">
+            {caseData?.claimAmount || 'N/A'}
+          </p>
+          <hr className="mt-4 border-t border-gray-300" />
+        </div>
+
+        <div className="mb-8">
+          <h2 className="text-xl font-semibold text-gray-600">Status</h2>
+          <p className="text-lg text-gray-700 mt-2">
+            {caseData?.status || 'N/A'}
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default ViewDashBoard;

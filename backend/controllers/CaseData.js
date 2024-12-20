@@ -36,18 +36,22 @@ const getallcases = async (req, res) => {
 const updatecase = async (req, res) => {
   const { id } = req.params;
   const updatedCase = req.body;
-
   try {
-    const updatedEntry = await Case.findByIdAndUpdate(id, updatedCase, {
-      new: true,
-    });
+    const updatedEntry = await Case.findOneAndUpdate(
+      { caseCode: id },
+      updatedCase,
+      {
+        new: true,
+      }
+    );
 
     if (!updatedEntry) {
       return res.status(404).send('Entry not found');
     }
-
+    console.log('Success');
     res.json(updatedEntry);
   } catch (error) {
+    console.log(error);
     res.status(500).send(error.message);
   }
 };
