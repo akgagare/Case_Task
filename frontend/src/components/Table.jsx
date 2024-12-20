@@ -4,29 +4,7 @@ import UpdateDashBoard from './UpdateDashBoard';
 import { Link } from 'react-router-dom';
 const Table = () => {
   // Dummy data to be displayed in the table
-  const [cases, setCases] = useState([
-    {
-      caseCode: '003',
-      claimantName: 'Sureesh Patel',
-      claimAmount: 40000,
-      status: 'Done',
-      action: 'Completed',
-    },
-    {
-      caseCode: '004',
-      claimantName: 'John Doe',
-      claimAmount: 25000,
-      status: 'Pending',
-      action: 'In Progress',
-    },
-    {
-      caseCode: '005',
-      claimantName: 'Sara Lee',
-      claimAmount: 50000,
-      status: 'In Progress',
-      action: 'Pending',
-    },
-  ]);
+  const [cases, setCases] = useState([]);
 
   // Fetch case data from the API
   useEffect(() => {
@@ -53,6 +31,19 @@ const Table = () => {
 
   const handleUpdate = (data) => {
     localStorage.setItem('caseItem', JSON.stringify(data));
+  };
+
+  const handleExport = async (data) => {
+    try {
+      const res = await fetch(
+        `http://127.0.0.1:5000/api/cases/export/${data.caseCode}`
+      );
+      const resp = await res.json();
+      alert('PDF Generated Successfully');
+      window.open(`http://127.0.0.1:5000/${data.caseCode}.pdf`, '_blank');
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   return (
@@ -96,7 +87,10 @@ const Table = () => {
                   </button>
                 </Link>
 
-                <button className="bg-green-500 text-white px-4 py-1 rounded hover:bg-green-700 transition">
+                <button
+                  className="bg-green-500 text-white px-4 py-1 rounded hover:bg-green-700 transition"
+                  onClick={() => handleExport(caseItem)}
+                >
                   Export PDF
                 </button>
               </td>
