@@ -60,9 +60,8 @@ const Table = () => {
             <th className="py-2 px-4 border-b">Claimant Name</th>
             <th className="py-2 px-4 border-b">Claim Amount</th>
             <th className="py-2 px-4 border-b">Status</th>
-            <th className="py-2 px-4 border-b">Hospital Name</th>
-            <th className="py-2 px-4 border-b">Doctor Name</th>
-            <th className="py-2 px-4 border-b">Actions</th>
+            <th className="py-2 px-4 border-b">Action</th>
+            
           </tr>
         </thead>
         <tbody>
@@ -73,11 +72,6 @@ const Table = () => {
               <td className="py-2 px-4 border-b">{caseItem.claimAmount}</td>
               <td className="py-2 px-4 border-b">{caseItem.status}</td>
               <td className="py-2 px-4 border-b flex gap-2">
-                <Link to={ViewDashBoard}>
-                  <button className="bg-blue-500 text-white px-4 py-1 rounded hover:bg-blue-700 transition" onClick={()=>handleView(caseItem.caseCode)}>
-                    View
-                  </button>
-                </Link>
                 
                 <Link to="/updateDashBoard">
                   <button className="bg-yellow-500 text-white px-4 py-1 rounded hover:bg-yellow-700 transition" onClick={()=>handleUpdate(caseItem)}>

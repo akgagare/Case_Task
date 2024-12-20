@@ -5,26 +5,27 @@ import ViewDashBoard from './components/ViewDashBoard';
 import UpdateDashBoard from './components/UpdateDashBoard';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Home from './components/Home';
+import Nav from './components/Nav';
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <Home />,
+    element: <><Home/></>,
   },
   {
     path: '/form',
-    element: <Form />,
+    element: <><Nav/><Form /></>,
   },
   {
     path: '/table',
-    element: <Table />,
+    element: <><Nav/><Table /></>,
   },
   {
     path: '/updateDashBoard',
-    element: <UpdateDashBoard />,
+    element: <><Nav/><UpdateDashBoard /></>,
   },
   {
     path: '/ViewDashBoard',
-    element: <ViewDashBoard />,
+    element: <><Nav/><ViewDashBoard /></>,
   },
 ]);
 function App() {
