@@ -21,6 +21,7 @@ const Form = () => {
           doctorName,
           status
         };
+        console.log("the form data ----- >>>> ",formData.json());
         onSubmit(formData);
     };
   return (
@@ -59,7 +60,7 @@ const Form = () => {
                 id="claimAmount"
                 required
                 value={claimAmount}
-                onChange={(e)=>setClaimantName(e.target.value)}
+                onChange={(e)=>setClaimAmount(e.target.value)}
                 className="mt-2 p-2 w-full border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
             </div>
