@@ -11,18 +11,44 @@ const Form = () => {
     
     
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
+    
+        // Construct the form data object
         const formData = {
-          caseCode,
-          claimantName,
-          claimAmount,
-          hospitalName,
-          doctorName,
-          status
+            caseCode,
+            claimantName,
+            claimAmount,
+            hospitalName,
+            doctorName,
+            status
         };
-        console.log("the form data ----- >>>> ",formData.json());
-        onSubmit(formData);
+    
+        // Log the form data to the console
+        console.log("The form data ----- >>>> ", formData);
+    
+        // Send the form data via POST request to the Express API
+        try {
+            const response = await fetch('http://localhost:5000/api/cases', {
+                method: 'POST', // HTTP method
+                headers: {
+                    'Content-Type': 'application/json' // Sending data in JSON format
+                },
+                body: JSON.stringify(formData) // Stringify the form data object
+            });
+    
+            // Check if the request was successful
+            if (response.ok) {
+                const data = await response.json(); // Parse the response
+                console.log("Data from API:", data);
+                // Handle the response (like showing a success message)
+                
+            } else {
+                console.error("Error: Unable to submit the form data");
+            }
+        } catch (error) {
+            console.error("Error occurred during form submission:", error);
+        }
     };
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center">
