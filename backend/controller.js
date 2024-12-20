@@ -30,6 +30,7 @@ app.get('/getCase/:id',(req,res)=>{
   //This is VIEW api
 })
 
+
 // Start the Express server on port 5000
 app.listen(5000, () => {
   console.log('Server is running on http://localhost:5000');
