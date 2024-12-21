@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 
-const caseDB =
-  'mongodb+srv://sksonawane34:DXhdE2j1MLRJxYFW@cluster0.rcebf.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
+const caseDB = process.env.mongoURL;
 
 mongoose
   .connect(caseDB)
